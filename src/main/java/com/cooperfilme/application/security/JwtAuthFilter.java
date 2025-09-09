@@ -16,6 +16,17 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     private final UserDetailsService uds;
 
     @Override
+    protected boolean shouldNotFilter(HttpServletRequest request) {
+        String path = request.getRequestURI();
+        return path.startsWith("/h2-console")
+            || path.startsWith("/swagger-ui")
+            || path.startsWith("/v3/api-docs")
+            || path.startsWith("/auth")
+            || path.equals("/screenplays")
+            || path.equals("/screenplays/status");
+    }
+
+    @Override
     protected void doFilterInternal(HttpServletRequest req, HttpServletResponse res, FilterChain chain)
         throws ServletException, IOException {
 

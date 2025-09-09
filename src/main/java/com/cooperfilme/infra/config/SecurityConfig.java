@@ -22,16 +22,31 @@ public class SecurityConfig {
 
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf(csrf->csrf.disable())
-           .authorizeHttpRequests(auth->auth
-               .requestMatchers("/auth/**").permitAll()
-               .requestMatchers("/screenplays", "/screenplays/status").permitAll()
-               .anyRequest().authenticated()
-           )
-           .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+        http
+            // DEV: desativa CSRF por completo (evita 403 no form do H2)
+            .csrf(csrf -> csrf.disable())
+            // H2 console usa frames
+            .headers(headers -> headers.frameOptions(frame -> frame.disable()))
+            // Libera H2 e Swagger
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers(
+                    "/h2-console/**",
+                    "/swagger-ui.html",
+                    "/swagger-ui/**",
+                    "/v3/api-docs/**"
+                ).permitAll()
+                .requestMatchers(
+                    "/auth/**",
+                    "/screenplays",
+                    "/screenplays/status"
+                ).permitAll()
+                .anyRequest().authenticated()
+            )
+            .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+
         return http.build();
     }
-
+    
     @Bean BCryptPasswordEncoder passwordEncoder() { return new BCryptPasswordEncoder(); }
 
     @Bean
