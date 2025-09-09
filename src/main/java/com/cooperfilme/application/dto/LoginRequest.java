@@ -6,4 +6,3 @@ public record LoginRequest(
     @Email @NotBlank String email,
     @NotBlank String password
 ) {}
-public record LoginResponse(String token, String name, String role) {}
