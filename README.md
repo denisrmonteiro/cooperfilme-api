@@ -19,7 +19,8 @@ API REST desenvolvida em Java com Spring Boot para gerenciar o fluxo de aprovaç
 
 ## 📦 Como Rodar o Projeto
 
-1. Clone o repositório:
-   ```bash
+
    git clone https://github.com/seu-usuario/cooperfilme-api.git
    cd cooperfilme-api
+   mvn clean install
+   mvn spring-boot:run
