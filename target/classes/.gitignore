@@ -1,0 +1,35 @@
+# Diretórios de build
+/target/
+
+# Arquivos de log
+*.log
+
+# Configurações específicas do VS Code
+.vscode/
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos de ambiente virtual (caso tenha usado Python em paralelo)
+.venv/
+
+# Arquivos de IDEs
+*.iml
+.idea/
+*.classpath
+*.project
+*.settings/
+
+# Arquivos gerados pelo Maven
+dependency-reduced-pom.xml
+buildNumber.properties
+release.properties
+
+# Arquivos temporários
+*.tmp
+*.bak
+*.swp
+
+# Arquivos de sistema operacional
+*.~*
