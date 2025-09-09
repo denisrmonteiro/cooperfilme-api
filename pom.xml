@@ -96,6 +96,18 @@
 
   <build>
     <plugins>
+      <!-- Plugin do compilador Java -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${spring.boot.version}</version>
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+          <encoding>UTF-8</encoding>
+        </configuration>
+      </plugin>
+
       <!-- Plugin do Spring Boot -->
       <plugin>
         <groupId>org.springframework.boot</groupId>
