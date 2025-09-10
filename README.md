@@ -24,3 +24,16 @@ API REST desenvolvida em Java com Spring Boot para gerenciar o fluxo de aprovaç
    cd cooperfilme-api
    mvn clean install
    mvn spring-boot:run
+
+
+## 👥 Usuários pré-cadastrados
+
+O sistema inicializa com os seguintes usuários para fins de teste:
+
+| Nome              | E-mail                      | Senha         | Papel      |
+|-------------------|-----------------------------|---------------|------------|
+| Ana Analista      | analista@cooperfilme.com    | analista123   | ANALISTA   |
+| Rui Revisor       | revisor@cooperfilme.com     | revisor123    | REVISOR    |
+| Aline Aprovadora  | aprovador1@cooperfilme.com  | aprovador123  | APROVADOR  |
+| Alex Aprovador    | aprovador2@cooperfilme.com  | aprovador123  | APROVADOR  |
+| Amanda Aprovadora | aprovador3@cooperfilme.com  | aprovador123  | APROVADOR  |
