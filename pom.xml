@@ -117,6 +117,18 @@
         <mainClass>com.cooperfilme.CooperfilmeApiApplication</mainClass>
       </configuration>
       </plugin>
+
+      <!-- OpenRewrite Plugin for upgrading to Java 21 -->
+      <plugin>
+        <groupId>org.openrewrite.maven</groupId>
+        <artifactId>rewrite-maven-plugin</artifactId>
+        <version>5.47.3</version>
+        <configuration>
+          <activeRecipes>
+            <recipe>com.cooperfilme.UpgradeJava21</recipe>
+          </activeRecipes>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 </project>
